@@ -31,3 +31,37 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-brand {
+  font-size: 2em;
+}
+
+.navbar-header {
+  font-family: 'Bowlby One SC';
+  margin-left: 20px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+.navbar-text {
+  margin-left: 20px;
+  padding: 0px;
+}
+
+.App {
+}
+
+footer {
+  background-color: lightslategrey;
+  font-size: .6em;
+  color: lightgrey;
+  text-align: center;
+
+  a {
+    color: lightgrey;
+  }
+}
+
+.media {
+  color: lightgrey;
+}
