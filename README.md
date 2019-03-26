@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 415lens
 
-## Available Scripts
+## How To Build
 
-In the project directory, you can run:
+1) Run `yarn run resize` to generate all the images sizes needed.
+2) Run `yarn build` to compile the website
+3) Copy the contents of /build to `s3://415lens.com/`
 
-### `npm start`
+## How to Host in AWS
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### S3 setup
+1) Create an S3 bucket 415lens.com and copy your web contents to the root
+2) In `Permissions > Public access settings` set everything to false to allow editing of the bucket policy.
+3) In `Permissions > Bucket Policy` copy this setting
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::415lens.com/*"
+        }
+    ]
+}
+```
+4) In `Properties > Static website hosting` select `Use this bucket to host a website` and set the `index document` to "index.html"
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Route 53 Setup
+1) Create a new Hosted Zone and enter your domain name
+2) Update your domain registar with the NS values
+3) Skip down to setting up Certificate Manager and CloudFront, then return here
+4) Create an Alias record for 415lens.com to the CloudFront target
+5) Create another Alias record for www.415lens.com to the CloudFront target
 
-### `npm test`
+### Certificate Manager setup
+1) Request a public certificate IN US-EAST-1 (North Virginia)!!!
+2) Add your domain
+3) Select DNS validation
+4) Allow AWS to create a cname record in Route53 to validate
+5) Wait for Status to change to Issues.
+6) Wait another day until certificate is propaged to all cloudfront servers
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Cloud Front setup
+1) Create a new Web Distribution
+2) Set `Origin Domain Name` to the S3 bucket 415lens.com
+3) Set `Viewer Protocol Policy` to Redirect HTTP to HTTPS
+4) Set `Alternative Domain Names` to 415lens.com, www.415lens.com
+5) Select Custom SSL Certificate and select the SSL cert from Credential Manager (It may take up to a day for the cert to appear after creation)
+6) Set `Default Root Object` to "index.html"
