@@ -3,6 +3,7 @@ import '../assets/App.scss';
 import '../assets/Gallery.scss';
 
 import Tile from './Tile'
+import Hero from './Hero'
 import { images } from './Images.js'
 
 export default class Gallery extends Component {

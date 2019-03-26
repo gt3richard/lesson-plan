@@ -38,17 +38,25 @@
 
 .navbar-header {
   font-family: 'Bowlby One SC';
+  font-size: 2em;
   margin-left: 20px;
   margin-bottom: 0px;
   padding: 0px;
 }
 
 .navbar-text {
-  margin-left: 20px;
+  font-family: 'Arial';
   padding: 0px;
+  text-align: left;
 }
 
-.App {
+.social {
+  color: lightgrey;
+  font-size: 2em;
+
+  a, a:link, a:visited, a:hover, a:active {
+    color: lightgrey;
+  }
 }
 
 footer {
@@ -57,7 +65,7 @@ footer {
   color: lightgrey;
   text-align: center;
 
-  a {
+  a, a:link, a:visited, a:hover, a:active {
     color: lightgrey;
   }
 }

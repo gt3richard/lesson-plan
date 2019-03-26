@@ -54,7 +54,6 @@ export default class Tile extends Component {
         };
 
         const size = window.innerWidth <= 760 ? '200x200' : '500x500'
-        console.log(window.innerWidth)
         return (
             <div className="tile">
                 <img className="rounded mx-auto d-block"
@@ -69,6 +68,7 @@ export default class Tile extends Component {
                     <Lightbox
                         mainSrc={`./photos/1000xnull/${this.props.data.image}`}
                         onCloseRequest={() => this.setState({ open: false })}
+                        enableZoom={false}
                     />
                 )}
             </div>
