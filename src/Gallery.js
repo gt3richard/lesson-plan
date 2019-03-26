@@ -3,7 +3,6 @@ import './assets/App.scss';
 import './assets/Gallery.scss';
 
 import Tile from './Tile'
-
 import { images } from './Images.js'
 
 export default class Gallery extends Component {
@@ -13,7 +12,7 @@ export default class Gallery extends Component {
           <div className="tiles row">
                 {images.map((data) => {
                     return (
-                    <div className="col-6 col-sm-3" key={data.id}>    
+                    <div className="col-4 col-sm-3 col-lg-4" key={data.id}>    
                         <Tile data={data} />
                     </div>
                     )

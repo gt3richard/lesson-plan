@@ -52,20 +52,23 @@ export default class Tile extends Component {
             width: '18vw',
             height: '18vw'
         };
+
+        const size = window.innerWidth <= 760 ? '200x200' : '500x500'
+        console.log(window.innerWidth)
         return (
             <div className="tile">
                 <img className="rounded mx-auto d-block"
                     onMouseEnter={this._mouseEnter}
                     onMouseLeave={this._mouseLeave}
                     onClick={this._clickHandler}
-                    src={this.props.data.image}
+                    src={`./photos/${size}/${this.props.data.image}`}
                     alt={this.props.data.name}
                     style={tileStyle}
                 />
                 {this.state.open && (
                     <Lightbox
-                        mainSrc={this.props.data.image}
-                        onCloseRequest={() => this.setState({ open: false })} 
+                        mainSrc={`./photos/original/${this.props.data.image}`}
+                        onCloseRequest={() => this.setState({ open: false })}
                     />
                 )}
             </div>
