@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Lightbox from 'react-image-lightbox';
 import './assets/App.scss';
+import 'react-image-lightbox/style.css';
 
 export default class Tile extends Component {
     constructor(props) {
@@ -17,7 +19,6 @@ export default class Tile extends Component {
     _mouseEnter(e) {
         e.preventDefault();
         if (this.state.mouseOver === false) {
-            console.log(this.props.data.name);
             this.setState({
                 mouseOver: true
             })
@@ -47,8 +48,6 @@ export default class Tile extends Component {
     render() {
         // Modify styles based on state values
         let tileStyle = {};
-        let headerStyle = {};
-        let zoom = {};
         tileStyle = {
             width: '18vw',
             height: '18vw'
@@ -63,6 +62,12 @@ export default class Tile extends Component {
                     alt={this.props.data.name}
                     style={tileStyle}
                 />
+                {this.state.open && (
+                    <Lightbox
+                        mainSrc={this.props.data.image}
+                        onCloseRequest={() => this.setState({ open: false })} 
+                    />
+                )}
             </div>
         );
     }

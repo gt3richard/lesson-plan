@@ -7,7 +7,7 @@ export default class Nav extends Component {
       <nav className="navbar navbar-dark bg-dark">
         <div className="media">
           <div className="media-left">
-            <a href="#">
+            <a href="/">
               <img className="media-object" src="lens.png" width="64" height="64" alt="" />
             </a>
           </div>
