@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Lightbox from 'react-image-lightbox';
-import './assets/App.scss';
+import '../assets/App.scss';
 import 'react-image-lightbox/style.css';
 
 export default class Tile extends Component {
@@ -67,7 +67,7 @@ export default class Tile extends Component {
                 />
                 {this.state.open && (
                     <Lightbox
-                        mainSrc={`./photos/original/${this.props.data.image}`}
+                        mainSrc={`./photos/1000xnull/${this.props.data.image}`}
                         onCloseRequest={() => this.setState({ open: false })}
                     />
                 )}

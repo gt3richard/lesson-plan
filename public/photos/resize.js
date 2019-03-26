@@ -2,7 +2,7 @@ const fs = require('fs');
 const sharp = require('sharp');
 
 const base = 'public/photos'
-const sizes = [[200, 200], [500, 500]]
+const sizes = [[200, 200], [500, 500], [1000, null]]
 
 sizes.forEach((dim) => {
     const height = dim[0]

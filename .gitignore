@@ -25,4 +25,5 @@ yarn-error.log*
 /public/photos/original
 /public/photos/200x200
 /public/photos/500x500
+/public/photos/1000xnull
 
