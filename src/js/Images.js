@@ -30,7 +30,25 @@ export const images = [{
     id: 8,
     name: "8",
     image: "trolley_1.jpg"
-}];
+}, {
+    id: 9,
+    name: "9",
+    image: "gopro_1.jpg"
+}, {
+    id: 10,
+    name: "10",
+    image: "gt3_1.jpg"
+}, {
+    id: 11,
+    name: "11",
+    image: "lagunaseca_1.jpg"
+}, {
+    id: 12,
+    name: "12",
+    image: "porsche_1.jpg"
+}
+
+];
 
 export default {
     images,
