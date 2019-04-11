@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../assets/App.scss';
 
-import Gallery from './Gallery'
+import Gallery from './component/Gallery'
 import Nav from './Nav'
-import Carousel from './Carousel';
+import Carousel from './component/Carousel';
 
 class App extends Component {
   render() {
