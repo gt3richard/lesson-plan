@@ -7,8 +7,12 @@ export default class Nav extends Component {
       <nav className="navbar navbar-dark bg-dark">
         <div className="media">
           <div className="media-body">
-            <h2 className="media-heading navbar-header">415lens</h2>
-            <h6 className="media-heading navbar-text">An SF based studio</h6>
+            <h2 hidden={true} className="media-heading navbar-header">415lens</h2>
+            <h6 hidden={true} className="media-heading navbar-text">An SF Studio</h6>
+            <img className="media-heading navbar-img"
+                    alt='logo'
+                    src={`./415lens-logo-gray.png`}
+                />
           </div>
         </div>
         <div className="social">
