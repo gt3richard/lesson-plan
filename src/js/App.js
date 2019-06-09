@@ -3,15 +3,13 @@ import '../assets/App.scss';
 
 import Gallery from './component/Gallery'
 import Nav from './Nav'
-import Carousel from './component/Carousel';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Nav />
-        <Carousel />
-        <Gallery />
+        {/* <Gallery /> */}
       </div>
     );
   }
