@@ -29,9 +29,6 @@ jobs:
           command: yarn lint
           name: Run Lint
       - run:
-          command: yarn run resize
-          name: Run Resize Photos
-      - run:
           command: yarn build
           name: Build Project
       - aws-cli/setup
