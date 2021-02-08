@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../assets/App.scss';
-import '../../assets/Carousel.scss';
+import '../../assets/style/App.scss';
+import '../../assets/style/Carousel.scss';
 
 export default class Carousel extends Component {
     

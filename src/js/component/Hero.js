@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../assets/App.scss';
+import '../../assets/style/App.scss';
 
 export default class Hero extends Component {
     constructor(props) {

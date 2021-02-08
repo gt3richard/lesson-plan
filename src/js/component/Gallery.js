@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../assets/App.scss';
-import '../../assets/Gallery.scss';
+import '../../assets/style/App.scss';
+import '../../assets/style/Gallery.scss';
 
 import Tile from './Tile'
 import { images } from '../Images.js'

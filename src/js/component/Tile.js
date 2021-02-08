@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Lightbox from 'react-image-lightbox';
-import '../../assets/App.scss';
+import '../../assets/style/App.scss';
 import 'react-image-lightbox/style.css';
 
 export default class Tile extends Component {
