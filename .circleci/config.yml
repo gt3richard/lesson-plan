@@ -33,5 +33,5 @@ jobs:
           name: Build Project
       - aws-cli/setup
       - run:
-          command: aws s3 sync build/ s3://415lens.com/$CIRCLE_BRANCH
+          command: aws s3 sync build/ s3://domnain.com/$CIRCLE_BRANCH
           name: Deploy AWS S3

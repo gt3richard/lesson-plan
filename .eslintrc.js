@@ -5,10 +5,14 @@ module.exports = {
       es6: true
     },
     plugins: ['prettier'],
-    parser: "babel-eslint",
+    parser: "@babel/eslint-parser",
     parserOptions: {
       sourceType: "module",
-      ecmaVersion: 2015
+      requireConfigFile: false,
+      ecmaVersion: 2015,
+      "babelOptions": {
+        "presets": ["@babel/preset-react"]
+     },
     },
     extends: [
       'airbnb',
